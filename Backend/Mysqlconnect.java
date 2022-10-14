@@ -16,12 +16,12 @@ public class Mysqlconnect {
 
         try {
             dbcon = DriverManager.getConnection(url, user, senha);
-            System.out.println("deu boa" + url);
+            System.out.println("Sql Aberto!: " + url);
             sqlmg = dbcon.createStatement();
 
         } catch (Exception Error){
 
-            System.out.println("deu ruim" +Error.getMessage());
+            System.out.println("Falha ao abrir Sql: " +Error.getMessage());
         }
     }
 
