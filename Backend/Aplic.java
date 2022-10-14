@@ -72,10 +72,8 @@ public class Aplic {
                 for (int i = 1; i <= columnsNumber; i++) {
                     if (i > 1) {
 
-                        // System.out.print(", "); // separador
                         String columnValue = rs.getString(i);
-                        // System.out.print(rsmd.getColumnName(i) + ": " + columnValue ); //printa
-                        // colunas
+
                         if (columnValue.equals(userpesq)) {
                             validarlog = 1;
                             System.out.println("Senha: ");
