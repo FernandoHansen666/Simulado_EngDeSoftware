@@ -107,8 +107,7 @@ public class Aplic {
 
         else if (identify.equals("3")) { // ITEM 3
 
-            String userpesq = new String(scn.nextLine());
-            System.out.println("Digite o user:");
+            System.out.println("Listagem Completa:_________");
 
             sql = "SELECT * FROM alunos;";
 
@@ -158,7 +157,6 @@ public class Aplic {
 
                 sql = "SELECT * FROM alunos WHERE nome = '" + dado + "';";
 
-
                 ResultSet rs = db1.Searchdate(sql);
 
                 java.sql.ResultSetMetaData rsmd = rs.getMetaData();
@@ -181,7 +179,6 @@ public class Aplic {
                 String dado = new String(scn.nextLine());
 
                 sql = "SELECT * FROM alunos WHERE user = '" + dado + "';";
-
 
                 ResultSet rs = db1.Searchdate(sql);
 
@@ -206,7 +203,6 @@ public class Aplic {
 
                 sql = "SELECT * FROM alunos WHERE senha = '" + dado + "';";
 
-
                 ResultSet rs = db1.Searchdate(sql);
 
                 java.sql.ResultSetMetaData rsmd = rs.getMetaData();
@@ -229,7 +225,6 @@ public class Aplic {
                 String dado = new String(scn.nextLine());
 
                 sql = "SELECT * FROM alunos WHERE codid = '" + dado + "';";
-
 
                 ResultSet rs = db1.Searchdate(sql);
 
@@ -254,7 +249,6 @@ public class Aplic {
 
                 sql = "SELECT * FROM alunos WHERE serie = '" + dado + "';";
 
-
                 ResultSet rs = db1.Searchdate(sql);
 
                 java.sql.ResultSetMetaData rsmd = rs.getMetaData();
@@ -277,7 +271,6 @@ public class Aplic {
                 String dado = new String(scn.nextLine());
 
                 sql = "SELECT * FROM alunos WHERE idade = '" + dado + "';";
-               
 
                 ResultSet rs = db1.Searchdate(sql);
 
@@ -302,8 +295,7 @@ public class Aplic {
 
             db1.Closedatabase();
             scn.close();
-        }
-        else if (identify.equals("0")) {
+        } else if (identify.equals("0")) {
             System.out.println("Finalizado!");
             System.exit(1);
         }

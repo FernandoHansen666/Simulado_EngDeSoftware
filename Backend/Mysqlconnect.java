@@ -9,7 +9,7 @@ public class Mysqlconnect {
 
     private Connection dbcon = null;
     private Statement sqlmg = null;
-    private ResultSet resultsql = null;
+    //private ResultSet resultsql = null;
 
 
     public void Opendatabase (){
