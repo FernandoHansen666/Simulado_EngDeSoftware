@@ -25,22 +25,33 @@ public class Mysqlconnect {
         }
     }
 
-    public void Closedatabase() throws SQLException {
+    public void Closedatabase() throws SQLException { // fecha o banco
 
         sqlmg.close();
         dbcon.close();
     }
 
-    public int ExecuteQ(String sql){
+    public int ExecuteQ(String sql){ 
 
         try {
        return sqlmg.executeUpdate(sql);
+
+
         }
         catch (Exception Error) {
 
             System.out.println("errorrr" + Error.getMessage());
         }
         return -1;
+    }
+
+    public ResultSet Searchdate(String sql) throws SQLException{ //retorna os daDOS
+
+       
+          return sqlmg.executeQuery(sql);
+
+          
+        
     }
     
 }
