@@ -14,6 +14,9 @@ public class Aplic {
 
         String identify = null;
 
+        // Quest test = new Quest(); // testando objeto
+        // test.InserirQuest();
+
         System.out.println("------ Escolha alguma das opções ------");
         System.out.println("1 - Cadastro");
         System.out.println("2 - Login");
@@ -22,7 +25,7 @@ public class Aplic {
         System.out.println("0 - Finalizar programa");
         System.out.println("----------------------------------------");
 
-        identify = scn.nextLine(); // b.o
+        identify = scn.nextLine(); 
 
         if (identify.equals("1")) { // ITEM 1
 
