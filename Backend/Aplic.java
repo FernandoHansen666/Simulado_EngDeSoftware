@@ -14,14 +14,13 @@ public class Aplic {
 
         String identify = null;
 
-        // Quest test = new Quest(); // testando objeto
-        // test.InserirQuest();
 
         System.out.println("------ Escolha alguma das opções ------");
         System.out.println("1 - Cadastro");
         System.out.println("2 - Login");
         System.out.println("3 - Listar cadastros");
         System.out.println("4 - Busca de cadastro");
+        System.out.println("5 - Questões");
         System.out.println("0 - Finalizar programa");
         System.out.println("----------------------------------------");
 
@@ -296,7 +295,36 @@ public class Aplic {
 
             db1.Closedatabase();
             scn.close();
-        } else if (identify.equals("0")) {
+        }
+        else if (identify.equals("5")) { //ITEM 5 QUESTS
+
+          Quest quest = new Quest(); // testando objeto
+
+            System.out.println("------ Escolha alguma das opções ------");
+        System.out.println("1 - Cadastro Questões");
+        System.out.println("2 - Listar Questões");
+        System.out.println("3 - Busca de Questão");
+        System.out.println("0 - Finalizar programa");
+        System.out.println("----------------------------------------");
+
+        String esco = new String(scn.nextLine());
+
+          if (esco.equals("1")) {
+            quest.InserirQuest();
+          }
+          else if (esco.equals("2")) {
+            quest.Buscartodasquest();
+          }
+          else if (esco.equals("3")) {
+            quest.Buscarquest();
+          }
+          
+           
+           
+
+        }
+        
+        else if (identify.equals("0")) {
             System.out.println("Finalizado!");
             System.exit(1);
         }

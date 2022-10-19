@@ -5,22 +5,17 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Quest {
-    
-    Scanner sc = new Scanner(System.in);
-    String sql = new String();
-    Mysqlconnect db2 = new Mysqlconnect();
 
+    Scanner scn = new Scanner(System.in);
+    String sql = new String();
+    Mysqlconnect db1 = new Mysqlconnect();
 
     public void InserirQuest() throws SQLException{
 
-        Scanner scn = new Scanner(System.in);
-        String sql = new String();
-
-        Mysqlconnect db1 = new Mysqlconnect();
-
-        sql = "SELECT * FROM questoes;";
 
         db1.Opendatabase();
+
+        sql = "SELECT * FROM questoes;";
 
         ResultSet rs = db1.Searchdate(sql);
 
@@ -37,9 +32,22 @@ public class Quest {
             System.out.println(codi); 
             codi = +1; // soma pra criar ID automatico nas questoes
 
+            System.out.print("Pergunta: ");
+            String pergunta = new String(scn.nextLine());
+            System.out.print("Resposta A: ");
+            String respa = new String(scn.nextLine());
+            System.out.print("Resposta B: ");
+            String respb = new String(scn.nextLine());
+            System.out.print("Resposta C: ");
+            String respc = new String(scn.nextLine());
+            System.out.print("Resposta D: ");
+            String respd = new String(scn.nextLine());
+            System.out.print("Peso da Questão (1,2 ou 3): ");
             String peso = new String(scn.nextLine());
+            System.out.print("Resposta Correta (A,B,C ou D): ");
+            String correta = new String(scn.nextLine());
            
-         sql = "INSERT INTO `questoes` VALUES ('"+codi+"', 'pergunta', 'respa', 'respb', 'respc', 'respd', '"+peso+"', 'correta');"; // comando direto no banco
+         sql = "INSERT INTO `questoes` VALUES ('"+codi+"', '"+pergunta+"', '"+respa+"', '"+respb+"', '"+respc+"', '"+respd+"', '"+peso+"', '"+correta+"');"; // comando direto no banco
         
          db1.ExecuteQ(sql);
 
@@ -51,9 +59,59 @@ public class Quest {
 
     }
 
-    public void Buscarquest(){
+    public void Buscartodasquest() throws SQLException{
 
+        sql = "SELECT * FROM questoes;";
 
+            db1.Opendatabase();
+
+            ResultSet rs = db1.Searchdate(sql);
+
+            java.sql.ResultSetMetaData rsmd = rs.getMetaData();
+
+            System.out.println("");
+            int columnsNumber = rsmd.getColumnCount();
+            while (rs.next()) {
+                for (int i = 1; i <= columnsNumber; i++) {
+                    if (i > 1)
+                        System.out.print(",  ");
+                    String columnValue = rs.getString(i);
+                    System.out.print(rsmd.getColumnName(i) + ": " + columnValue);
+                }
+                System.out.println("");
+            }
+
+            db1.Closedatabase();
+            scn.close();
+
+    }
+    public void Buscarquest() throws SQLException{
+
+        System.out.print("Digite o ID da questão: ");
+        String idquest = new String(scn.nextLine());
+        sql = "SELECT * FROM questoes WHERE id= "+idquest+" ;";
+        db1.Opendatabase();
+       
+        ResultSet rs = db1.Searchdate(sql);
+
+                java.sql.ResultSetMetaData rsmd = rs.getMetaData();
+
+                System.out.println("");
+                int columnsNumber = rsmd.getColumnCount();
+                while (rs.next()) {
+                    for (int i = 1; i <= columnsNumber; i++) {
+                        if (i > 1)
+                            System.out.print(",  ");
+                        String columnValue = rs.getString(i);
+                        System.out.print(rsmd.getColumnName(i) + ": " + columnValue);
+                    }
+                    System.out.println("");
+                }
+        
+       
+
+        db1.Closedatabase();
+        scn.close();
 
     }
 }
