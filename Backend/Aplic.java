@@ -87,7 +87,7 @@ public class Aplic {
                                 System.out.println("Logado!");
                                 System.out.println(" Olá " + rs.getString(1));
 
-                              String userlogado = userpesq;
+                             
 
                             } else {
                                 System.out.println("Senha Incorreta!");

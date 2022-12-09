@@ -121,6 +121,7 @@ public class Quest {
         System.out.println("Voce deseja simulado (1) ou treino (2) ?");
         Scanner fake = new Scanner(System.in);
         fake.nextInt();
+        fake.close();
 
 
         Random gerador = new Random();
