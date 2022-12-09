@@ -14,7 +14,6 @@ public class Aplic {
 
         String identify = null;
 
-
         System.out.println("------ Escolha alguma das opções ------");
         System.out.println("1 - Cadastro");
         System.out.println("2 - Login");
@@ -24,7 +23,7 @@ public class Aplic {
         System.out.println("0 - Finalizar programa");
         System.out.println("----------------------------------------");
 
-        identify = scn.nextLine(); 
+        identify = scn.nextLine();
 
         if (identify.equals("1")) { // ITEM 1
 
@@ -77,6 +76,9 @@ public class Aplic {
                         String columnValue = rs.getString(i);
 
                         if (columnValue.equals(userpesq)) {
+
+                            
+
                             validarlog = 1;
                             System.out.println("Senha: ");
                             String passw = new String(scn.nextLine());
@@ -84,6 +86,8 @@ public class Aplic {
 
                                 System.out.println("Logado!");
                                 System.out.println(" Olá " + rs.getString(1));
+
+                              String userlogado = userpesq;
 
                             } else {
                                 System.out.println("Senha Incorreta!");
@@ -99,6 +103,7 @@ public class Aplic {
             if (validarlog == 0) { // aaaaaaaaaaaaaaaaaaaaaaaaaaaa
                 System.out.println("User invalido!");
             }
+
             db1.Closedatabase();
             scn.close();
         }
@@ -295,35 +300,34 @@ public class Aplic {
 
             db1.Closedatabase();
             scn.close();
-        }
-        else if (identify.equals("5")) { //ITEM 5 QUESTS
+        } else if (identify.equals("5")) { // ITEM 5 QUESTS
 
-          Quest quest = new Quest(); // testando objeto
+            Quest quest = new Quest(); // testando objeto
 
             System.out.println("------ Escolha alguma das opções ------");
-        System.out.println("1 - Cadastro Questões");
-        System.out.println("2 - Listar Questões");
-        System.out.println("3 - Busca de Questão");
-        System.out.println("0 - Finalizar programa");
-        System.out.println("----------------------------------------");
+            System.out.println("1 - Cadastro Questões");
+            System.out.println("2 - Listar Questões");
+            System.out.println("3 - Busca de Questão");
+            System.out.println("4 - Fazer Questão");
+            System.out.println("0 - Finalizar programa");
+            System.out.println("----------------------------------------");
 
-        String esco = new String(scn.nextLine());
+            String esco = new String(scn.nextLine());
 
-          if (esco.equals("1")) {
-            quest.InserirQuest();
-          }
-          else if (esco.equals("2")) {
-            quest.Buscartodasquest();
-          }
-          else if (esco.equals("3")) {
-            quest.Buscarquest();
-          }
-          
-           
-           
+            if (esco.equals("1")) {
+                quest.InserirQuest();
+            } else if (esco.equals("2")) {
+                quest.Buscartodasquest();
+            } else if (esco.equals("3")) {
+                quest.Buscarquest();
+            }
+            else if (esco.equals("4")) {
+                quest.Fazerquest();
+
+            }
 
         }
-        
+
         else if (identify.equals("0")) {
             System.out.println("Finalizado!");
             System.exit(1);
